@@ -18,6 +18,9 @@ public class ProductPage extends PageObject {
 	})
 	private List<WebElement> sizeListElements;
 	
+	@FindBy(xpath = "//*[@id=\"picker-1\"]/button")
+	private WebElement sizeListOpener;
+	
 	@FindBy(xpath = "//*[@id=\"main-content\"]/div[2]/div[2]/div[1]/div[1]/div/div[3]/div[1]/button")
 	private WebElement addToCartButton;
 	
@@ -29,8 +32,9 @@ public class ProductPage extends PageObject {
 	}
 	
 	public boolean addProductToCart(int size) {
+		sizeListOpener.click();
 		WebElement sizeButtonContainer = sizeListElements.get(size + 1);
-		WebElement sizeButton = sizeButtonContainer.findElement(By.xpath("/div/button"));
+		WebElement sizeButton = sizeButtonContainer.findElement(By.xpath(".//div/button"));
 		sizeButton.click();
 		addToCartButton.click();
 		return true;
@@ -45,8 +49,8 @@ public class ProductPage extends PageObject {
 		return sizes;
 	}
 	
-	public String getShoppingCartCount() {
-		return shoppingCartCount.getText();
+	public WebElement getShoppingCartCount() {
+		return shoppingCartCount;
 	}
 	
 	public boolean isInitialized() {

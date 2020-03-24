@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,7 +20,7 @@ public class AddToCartTest extends GlobalPageMethods {
 
 	@Before
 	public void beforeFunction() {
-		driver.manage().window().setSize(new Dimension(900, 900));
+//		driver.manage().window().setSize(new Dimension(900, 900));
 		driver.navigate().to("https://www2.hm.com/en_us/productpage.0687635001.html");
 
 		productPage = new ProductPage(driver);
@@ -37,6 +38,8 @@ public class AddToCartTest extends GlobalPageMethods {
 		int[] sizes = productPage.getProductSizes();
 		for(int size: sizes) {
 			productPage.addProductToCart(size);
+			wait.until(ExpectedConditions.textToBePresentInElement(productPage.getShoppingCartCount(), String.valueOf(size + 1)));
+			assertEquals(String.valueOf(size + 1), productPage.getShoppingCartCount().getAttribute("innerText"));
 		}
 	}
 }
