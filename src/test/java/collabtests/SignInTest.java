@@ -12,5 +12,5 @@ public class SignInTest extends GlobalPageMethods{
 		SignInPage signIn = new SignInPage(driver);
 		signIn.enterSignIn("a@gmail.com", "pass");
 		assertEquals("Wrong email or password, please try again.", signIn.getConfirmationHeader());
-  }l
+  }
 }
