@@ -9,7 +9,7 @@ public class SignInPage extends PageObject {
 	public SignInPage(WebDriver driver){
 		super(driver);
 	}
- 
+ l
 	@FindBy(xpath = "/html/body/header/nav/ul[1]/li[1]/div/a[1]")
 	private WebElement signIn;
  
