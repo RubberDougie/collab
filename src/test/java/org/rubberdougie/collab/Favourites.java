@@ -7,11 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class Favourites extends PageObject {
-	@FindBy(xpath = "/html/body/div[1]/div[4]/div[1]/div[2]/div/div/div/div[1]/section/div[1]/div/div/div/div[2]/div/div[1]/div[1]/ul/li[1]")
-	private WebElement cochraneReviewsTab;
-
-	@FindBy(xpath = "/html/body/div[1]/div[4]/div[1]/div[2]/div/div/div/div[1]/section/div[1]/div/div/div/div[2]/div/div[1]/div[2]/form/div[1]/ul/li/ul/li/span/a")
-	private WebElement topicTitle1;
+	@FindBy(xpath = "//*[@id=\"main-content\"]/div[2]/div/div/div[3]/ul/li[1]/article/div[1]/a/div/button")
+	private WebElement firstItemFavorite;
 
 	public Favourites(WebDriver driver) {
 		super(driver);

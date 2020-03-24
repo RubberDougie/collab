@@ -20,7 +20,7 @@ public class FavoritesTest extends GlobalPageMethods {
 	@Before
 	public void beforeFunction() {
 		driver.manage().window().setSize(new Dimension(900, 900));
-		driver.navigate().to("https://www.cochranelibrary.com/");
+		driver.navigate().to("https://www2.hm.com/en_us/women/products/cardigans-sweaters.html");
 
 		cardigans = new Cardigans(driver);
 
