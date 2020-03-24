@@ -10,6 +10,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.rubberdougie.collab.Cardigans;
+import org.rubberdougie.collab.Favourites;
 import org.rubberdougie.collab.GlobalPageMethods;
 
 public class FavoritesTest extends GlobalPageMethods {
@@ -28,10 +29,10 @@ public class FavoritesTest extends GlobalPageMethods {
 	}
 
 	@Test
-	public void testTopicSearchButton() {
+	public void testAddingToFavourites() {
 
 		/*
-		 * Given
+		 * Given handled by @Before and @BeforeClass hooks
 		 */
 
 		/*
@@ -39,18 +40,23 @@ public class FavoritesTest extends GlobalPageMethods {
 		 */
 
 		wait = new WebDriverWait(driver, 30);
-		wait.until(ExpectedConditions.visibilityOf(cardigans.getGastroSearchButton()));
-		CochraneLibraryTopicSearchResult cochraneLibraryTopicSearchResult = cardigans.gastroSearch();
+		wait.until(ExpectedConditions.visibilityOf(cardigans.getFirstItemFavourite()));
+		assertTrue(cardigans.isInitialized());
+
+		cardigans.clickFirstItemFavourite();
+		Favourites favourites = cardigans.navigateToFavourites();
 
 		/*
 		 * Then
 		 */
 
 		wait = new WebDriverWait(driver, 30);
-		wait.until(ExpectedConditions.attributeContains(cochraneLibraryTopicSearchResult.getCochraneReviewsTab(),
-				"class", "tab"));
-		assertTrue(cochraneLibraryTopicSearchResult.isInitialized());
+		wait.until(ExpectedConditions.visibilityOf(favourites.getFirstItemFavouriteDelete()));
+		assertTrue(favourites.isInitialized());
 
-		assertEquals("Gastroenterology & hepatology", cochraneLibraryTopicSearchResult.getTopicTitle1().getText());
+		// you got to this, so yay passed
+		int passed = 1;
+
+		assertEquals(1, passed);
 	}
 }

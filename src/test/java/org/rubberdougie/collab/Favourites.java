@@ -7,22 +7,25 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class Favourites extends PageObject {
-	@FindBy(xpath = "//*[@id=\"main-content\"]/div[2]/div/div/div[3]/ul/li[1]/article/div[1]/a/div/button")
-	private WebElement firstItemFavorite;
+	@FindBy(xpath = "//*[@id=\"0677930023\"]/div[3]/button[2]")
+	private WebElement firstItemFavouriteDelete;
+
+	@FindBy(xpath = "//*[@id=\"main-content\"]/div/div/h1")
+	private WebElement favouritesHeading;
 
 	public Favourites(WebDriver driver) {
 		super(driver);
 	}
 
 	public boolean isInitialized() {
-		return cochraneReviewsTab.isDisplayed();
+		return favouritesHeading.isDisplayed();
 	}
 
-	public WebElement getCochraneReviewsTab() {
-		return cochraneReviewsTab;
+	public WebElement getFavouritesHeading() {
+		return favouritesHeading;
 	}
 
-	public WebElement getTopicTitle1() { // should make a parameterized version taking in the name
-		return topicTitle1;
+	public WebElement getFirstItemFavouriteDelete() {
+		return firstItemFavouriteDelete;
 	}
 }

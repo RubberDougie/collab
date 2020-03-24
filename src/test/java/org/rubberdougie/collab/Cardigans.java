@@ -25,9 +25,13 @@ public class Cardigans extends PageObject {
 		return firstItemFavourite.isDisplayed();
 	}
 
-	public Favourites navigateToFavorites() {
+	public Favourites navigateToFavourites() {
 		clickFavouritesText();
 		return new Favourites(driver);
+	}
+
+	public WebElement getFirstItemFavourite() {
+		return firstItemFavourite;
 	}
 
 	private void clickFavouritesText() {
