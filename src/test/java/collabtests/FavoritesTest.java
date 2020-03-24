@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.rubberdougie.collab.Cardigans;
 import org.rubberdougie.collab.GlobalPageMethods;
 
-public class CochraneLibraryTopicSearchTest extends GlobalPageMethods {
+public class FavoritesTest extends GlobalPageMethods {
 
 	private WebDriverWait wait;
 	private Cardigans cardigans;
